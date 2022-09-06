@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model RealEstate {
+  id            String   @id @default(uuid())
+  site          String
+  url           String   @unique
+  name          String   @unique
+  station       String
+  age           String
+  roomType      String
+  floorPlan     String
+  areaSize      String?
+  petFriendly   Boolean?
+  longuitude    Decimal?
+  latitude      Decimal?
+  notes         String?
+  rent          Decimal
+  deposit       Decimal?
+  gratuity      Decimal?
+  managementFee Decimal?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
