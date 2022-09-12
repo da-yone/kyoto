@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common'
 import { Command, CommandRunner } from 'nest-commander'
 
 @Injectable()
-@Command({ name: 'crawl' })
+@Command({ name: 'suumo' })
 export class CrawlerCommand extends CommandRunner {
   constructor(private readonly crawler: CrawlerService) {
     super()
@@ -11,17 +11,5 @@ export class CrawlerCommand extends CommandRunner {
 
   async run(): Promise<void> {
     await this.crawler.suumo()
-  }
-}
-
-@Injectable()
-@Command({ name: 'deep_crawl' })
-export class DeepClawlerCommand extends CommandRunner {
-  constructor(private readonly crawler: CrawlerService) {
-    super()
-  }
-
-  async run(): Promise<void> {
-    await this.crawler.deep_suumo()
   }
 }

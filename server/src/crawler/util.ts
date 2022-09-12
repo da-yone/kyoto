@@ -23,3 +23,10 @@ export const getPrice = async (element: ElementHandle): Promise<number> => {
     return Number(withoutUnit)
   }
 }
+
+// 待機処理
+export const waitFor = async (seconds: number): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000)
+  })
+}
